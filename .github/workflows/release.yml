@@ -26,7 +26,7 @@ jobs:
           #   os: windows-latest
           #   RUSTFLAGS: -C target-feature=+crt-static
           # - target: x86_64-pc-windows-gnu
-            os: windows-latest
+          #   os: windows-latest
           # - target: arm64ec-pc-windows-msvc
           #   os: windows-latest
           - target: aarch64-unknown-linux-musl
@@ -45,7 +45,7 @@ jobs:
       - name: run cross-build
         uses: ahaoboy/cross-build@v1
         with:
-          bin: ei
+          bin: set-mode
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           target: ${{ matrix.target }}
           RUSTFLAGS: ${{ matrix.RUSTFLAGS }}
