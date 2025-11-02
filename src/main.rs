@@ -25,6 +25,11 @@ fn main() {
             let b = std::fs::read(&file).expect("read file error");
             std::fs::write(&output, b).expect("write file error");
             std::fs::set_permissions(&output, p).expect("set set_permissions error");
+
+            std::process::Command::new("sh")
+                .args(["-c", &format!("chmod +x {}", output)])
+                .output()
+                .expect("sh error");
             metadata(&output);
         }
         _ => println!("set-mode file mode"),
